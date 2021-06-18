@@ -1,0 +1,15 @@
+apiVersion: v1
+type: Pod
+metadata:
+        name: result-app-pod
+        lables:
+                name: result-app-pod
+                app: testing-k8s-vote-app
+
+spec:
+        containers:
+                - name: result-app-container
+                  image: dockersamples/examplevotingapp_result
+                  ports:
+                          - containerPort: 80
+                
