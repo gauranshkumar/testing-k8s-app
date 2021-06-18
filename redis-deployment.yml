@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: testing-k8s-vote-app
+  name: redis-deployment
+spec:
+  template:
+
+    metadata: 
+      labels: 
+        app: testing-k8s-vote-app
+        name: redis-pod
+      name: redis-pod
+    spec: 
+      containers: 
+        - 
+          image: redis
+          name: redis-container
+          ports: 
+            - 
+              containerPort: 6379
+  replicas: 1
+  selector:
+    app: testing-k8s-vote-app
+    name: redis-pod
+  
+

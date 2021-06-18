@@ -1,19 +1,17 @@
 apiVersion: v1
 kind: Service
-metadata:
-        name: db
-        labels:
-                name: db-service
-                app: testing-k8s-vote-app
+metadata: 
+  labels: 
+    app: testing-k8s-vote-app
+    name: db-service
+  name: db
+spec: 
+  ports: 
+    - 
+      port: 5432
+      targetPort: 5432
+  selector: 
+    app: testing-k8s-vote-app
+    name: postgres-pod
+  type: ClusterIP
 
-spec:
-        type: ClusterIP
-        ports:
-                - targetPort: 5432
-                  port: 5432
-        selector:
-                name: postgres-pod
-                app: testing-k8s-vote-app
-
-
-                  

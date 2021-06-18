@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: testing-k8s-vote-app
+  name: postgres-deployment
+spec:
+  template:
+    metadata: 
+      labels: 
+        app: testing-k8s-vote-app
+        name: postgres-pod
+      name: postgres-pod
+    spec: 
+      containers: 
+        - 
+          image: postgres
+          name: postgres-container
+          ports: 
+            - 
+              containerPort: 5432
+  replicas: 1
+  selector:
+    app: testing-k8s-vote-app
+    name: postgres-pod
+  
+
