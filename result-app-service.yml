@@ -12,7 +12,7 @@ spec:
                 - targetPort: 80
                   port: 80
         selector:
-                name: reult-app-pod
+                name: result-app-pod
                 app: testing-k8s-vote-app
 
 
