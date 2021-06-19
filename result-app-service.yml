@@ -10,8 +10,9 @@ spec:
     - 
       port: 80
       targetPort: 80
+      nodePort: 30011
   selector: 
     app: testing-k8s-vote-app
     name: result-app-pod
-  type: LoadBalancer
+  type: NodePort
 

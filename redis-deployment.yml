@@ -22,7 +22,8 @@ spec:
               containerPort: 6379
   replicas: 1
   selector:
-    app: testing-k8s-vote-app
-    name: redis-pod
-  
+    matchLabels:
+      app: testing-k8s-vote-app
+      name: redis-pod
+    
 

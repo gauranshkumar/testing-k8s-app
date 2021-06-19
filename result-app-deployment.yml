@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
         - 
-          image: dockersamples/examplevotingapp_result
+          image: dockersamples/result
           name: result-app-container
           ports: 
             - 
@@ -22,6 +22,7 @@ spec:
 
   replicas: 1
   selector:
-    app: testing-k8s-vote-app
-    name: result-app-pod
+    matchLabels:
+      app: testing-k8s-vote-app
+      name: result-app-pod
 

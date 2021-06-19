@@ -14,14 +14,20 @@ spec:
     spec: 
       containers: 
         - 
-          image: postgres
+          image: postgres:9.4
           name: postgres-container
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
           ports: 
             - 
               containerPort: 5432
   replicas: 1
   selector:
-    app: testing-k8s-vote-app
-    name: postgres-pod
-  
+    matchLabels:
+      app: testing-k8s-vote-app
+      name: postgres-pod
+    
 
